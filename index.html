@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>งานอุปสมบท พีรพล & รังสิพล ชนประชา | Ordination Gallery</title>
+    <meta name="description" content="ประมวลภาพความทรงจำและบรรยากาศอันน่าปิติยินดีในงานอุปสมบทของ นาย พีรพล (พี) ชนประชา และ นาย รังสิพล (ฟิล์ม) ชนประชา">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="page-loader" class="page-loader">
+        <!-- Slideshow background inside loader -->
+        <div class="loader-bg-slideshow" id="loader-slideshow"></div>
+        <div class="loader-content">
+            <div class="loader-wheel-container">
+                <div class="loader-glow"></div>
+                <!-- Dharma Wheel SVG -->
+                <svg class="loader-wheel" viewBox="0 0 24 24">
+                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4M6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12A2,2 0 0,1 6,10M18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12A2,2 0 0,1 18,10M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10Z"/>
+                </svg>
+            </div>
+            <h2 class="loader-title">งานอุปสมบท พี & ฟิล์ม</h2>
+            <p class="loader-subtitle" id="loader-status-text">กำลังเชื่อมต่อคลังภาพและประมวลผลระบบ...</p>
+            <div class="loader-progress-bar">
+                <div class="loader-progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Serene Audio Element -->
+    <audio id="ambient-audio" loop preload="auto">
+        <source src="ambient.mp3" type="audio/mpeg">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-zen-meditation-healing-1240.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">
+                <!-- Premium Gold Lotus SVG Logo -->
+                <svg class="logo-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 4C32 4 27.5 16.5 16.5 24C10.5 28.1 4.5 28.5 2 34C4.5 39.5 13 37.5 19 39.5C27.5 42.5 32 58 32 58C32 58 36.5 42.5 45 39.5C51 37.5 59.5 39.5 62 34C59.5 28.5 53.5 28.1 47.5 24C36.5 16.5 32 4 32 4Z" stroke="url(#gold-grad)" stroke-width="2.5" stroke-linejoin="round"/>
+                    <path d="M32 17C32 17 29 27 21 32.5C16.5 35.5 11.5 35.5 10 39C12 42.5 18 41 22.5 42.5C28.5 44.5 32 53 32 53C32 53 35.5 44.5 41.5 42.5C46 41 52 42.5 54 39C52.5 35.5 47.5 35.5 43 32.5C35 27 32 17 32 17Z" fill="url(#gold-grad)" opacity="0.85"/>
+                    <circle cx="32" cy="36" r="3.5" fill="var(--surface-color)" stroke="url(#gold-grad)" stroke-width="1.5"/>
+                    <defs>
+                        <linearGradient id="gold-grad" x1="2" y1="4" x2="62" y2="58" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#D97706" />
+                            <stop offset="50%" stop-color="#F59E0B" />
+                            <stop offset="100%" stop-color="#C59B27" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="brand-text">งานอุปสมบท พี & ฟิล์ม</span>
+            </a>
+            
+            <div class="nav-actions">
+                <!-- Soothing Audio Toggle Button -->
+                <button id="audio-toggle-btn" class="btn-circle" title="เปิด/ปิดเสียงดนตรีบรรเลงเพื่อสมาธิ">
+                    <i id="audio-icon-mute" class="fa-solid fa-volume-xmark show"></i>
+                    <i id="audio-icon-on" class="fa-solid fa-volume-high hidden" style="display:none;"></i>
+                </button>
+
+                <!-- Theme Toggle Button (Light/Dark) -->
+                <button id="theme-toggle-btn" class="btn-circle" title="สลับโหมดสว่าง/มืด">
+                    <i id="theme-icon-sun" class="fa-solid fa-sun show"></i>
+                    <i id="theme-icon-moon" class="fa-solid fa-moon hidden" style="display:none;"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Navigation Switcher -->
+    <div class="nav-tabs">
+        <button id="tab-timeline" class="tab-btn active">ไทม์ไลน์พิธีการ</button>
+        <button id="tab-gallery" class="tab-btn">คลังภาพทั้งหมด</button>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <!-- Background Image Fade Slideshow -->
+        <div class="hero-bg-slideshow" id="hero-slideshow"></div>
+
+        <!-- Floating Sparkles Container -->
+        <div class="sparkle-container">
+            <span class="sparkle" style="left: 5%; width: 5px; height: 5px; animation-duration: 7s; animation-delay: 0.5s;"></span>
+            <span class="sparkle" style="left: 15%; width: 8px; height: 8px; animation-duration: 9s; animation-delay: 2s;"></span>
+            <span class="sparkle" style="left: 25%; width: 4px; height: 4px; animation-duration: 6s; animation-delay: 1s;"></span>
+            <span class="sparkle" style="left: 35%; width: 9px; height: 9px; animation-duration: 10s; animation-delay: 3s;"></span>
+            <span class="sparkle" style="left: 45%; width: 5px; height: 5px; animation-duration: 8s; animation-delay: 0s;"></span>
+            <span class="sparkle" style="left: 55%; width: 6px; height: 6px; animation-duration: 7s; animation-delay: 2.5s;"></span>
+            <span class="sparkle" style="left: 65%; width: 8px; height: 8px; animation-duration: 9s; animation-delay: 1.2s;"></span>
+            <span class="sparkle" style="left: 75%; width: 4px; height: 4px; animation-duration: 6s; animation-delay: 3.5s;"></span>
+            <span class="sparkle" style="left: 85%; width: 7px; height: 7px; animation-duration: 8.5s; animation-delay: 0.8s;"></span>
+            <span class="sparkle" style="left: 95%; width: 5px; height: 5px; animation-duration: 7.5s; animation-delay: 1.8s;"></span>
+            <span class="sparkle" style="left: 10%; width: 6px; height: 6px; animation-duration: 9.5s; animation-delay: 4s;"></span>
+            <span class="sparkle" style="left: 30%; width: 5px; height: 5px; animation-duration: 7.5s; animation-delay: 5s;"></span>
+            <span class="sparkle" style="left: 50%; width: 8px; height: 8px; animation-duration: 8.5s; animation-delay: 4.5s;"></span>
+            <span class="sparkle" style="left: 70%; width: 4px; height: 4px; animation-duration: 6.5s; animation-delay: 6s;"></span>
+            <span class="sparkle" style="left: 90%; width: 9px; height: 9px; animation-duration: 8s; animation-delay: 5.5s;"></span>
+        </div>
+
+        <!-- Glowing Lotus Logo Ring -->
+        <div class="logo-container">
+            <div class="logo-glow-ring"></div>
+            <!-- Floating Lotus SVG Decor -->
+            <svg class="hero-lotus" viewBox="0 0 24 24">
+                <path d="M12,2C11.5,4 10,7 8,8.5C6,10 3,10 2,12C3,14 6,14 8,15.5C10,17 11.5,20 12,22C12.5,20 14,17 16,15.5C18,14 21,14 22,12C21,10 18,10 16,8.5C14,7 12.5,4 12,2Z"/>
+                <path d="M12,7C11.7,8.2 10.7,10.2 9.3,11.2C8,12.2 6.3,12.2 5.7,13.2C6.3,14.2 8,14.2 9.3,15.2C10.7,16.2 11.7,18.2 12,19.4C12.3,18.2 13.3,16.2 14.7,15.2C16,14.2 17.7,14.2 18.3,13.2C17.7,12.2 16,12.2 14.7,11.2C13.3,10.2 12.3,8.2 12,7Z" opacity="0.8"/>
+            </svg>
+        </div>
+        
+        <h1 class="hero-title">ภาพงานอุปสมบท</h1>
+        <p class="hero-subtitle">ภาพความทรงจำอันนอบน้อมและปิติสุขในงานอุปสมบทของ <b>นาย พีรพล (พี) ชนประชา</b> และ <b>นาย รังสิพล (ฟิล์ม) ชนประชา</b></p>
+        
+        <!-- Interactive Quotes -->
+        <div class="quote-container" id="quote-container">
+            <p class="quote-text" id="quote-text">กำลังโหลดถ้อยคำอนุโมทนาบุญกุศลอันยิ่งใหญ่...</p>
+            <span class="quote-author" id="quote-author">ร่วมอนุโมทนาบุญ</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Global Load Button (Hidden as auto-loading is now active) -->
+        <button id="load-btn" onclick="loadImages()" class="btn-primary" style="display:none;">
+            <!-- Dharma Wheel SVG -->
+            <svg id="load-btn-wheel" class="btn-icon" viewBox="0 0 24 24">
+                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4M6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12A2,2 0 0,1 6,10M18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12A2,2 0 0,1 18,10M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10Z"/>
+            </svg>
+            <span id="load-btn-text">โหลดและแสดงผลรูปภาพทั้งหมด</span>
+        </button>
+        
+        <!-- PAGE 1: Timeline View (Home Page) -->
+        <section id="timeline-view" class="view-container active">
+            
+            <!-- NEW SECTION: Naga Profiles Section -->
+            <section class="naga-profiles-section">
+                <div class="section-divider">
+                    <div class="section-divider-line"></div>
+                    <!-- Small Decorative Lotus SVG -->
+                    <svg class="section-divider-flower" viewBox="0 0 24 24">
+                        <path d="M12,2C11.5,4 10,7 8,8.5C6,10 3,10 2,12C3,14 6,14 8,15.5C10,17 11.5,20 12,22C12.5,20 14,17 16,15.5C18,14 21,14 22,12C21,10 18,10 16,8.5C14,7 12.5,4 12,2Z"/>
+                    </svg>
+                    <div class="section-divider-line"></div>
+                </div>
+                <h2 class="profiles-title">ผู้เข้าอุปสมบท (นาค)</h2>
+                <p class="profiles-subtitle">นาคผู้มีความตั้งมั่นในพระรัตนตรัย ก้าวเข้าสู่ร่มเงาพุทธธรรมกาสาวพัสตร์</p>
+                
+                <div class="profiles-grid">
+                    <!-- Naga Card 1: Pee -->
+                    <div class="profile-card">
+                        <span class="profile-tag">นาคพี่</span>
+                        <div class="profile-avatar-wrapper">
+                            <!-- Real photo from path with SVG fallback -->
+                            <img src="img/nark/PP-1992.jpg" class="profile-avatar-img" alt="นาคพี" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <svg class="profile-avatar-placeholder" viewBox="0 0 24 24" style="display:none;">
+                                <circle cx="12" cy="7" r="4.5"/>
+                                <path d="M12 13c-3.5 0-6.5 2-8 5v2.5h16V18c-1.5-3-4.5-5-8-5zm-4 4.5l4-3 4 3H8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="profile-name">นาย พีรพล ชนประชา</h3>
+                        <p class="profile-nickname">( นาคพี )</p>
+                        <div class="profile-meta">
+                            <span class="profile-meta-item">อายุ: <strong>25 ปี</strong></span>
+                        </div>
+                        <p class="profile-bio">"มีความตั้งใจบรรพชาอุปสมบท เพื่อศึกษาพระธรรมวินัย ขัดเกลาตนเองภายใต้ศีลธรรม และเพื่อทดแทนคุณแด่บิดามารดาผู้ให้กำเนิด ตลอดจนสร้างกุศลบารมีแผ่ไปถึงญาติมิตรทุกท่าน"</p>
+                    </div>
+
+                    <!-- Naga Card 2: Film -->
+                    <div class="profile-card">
+                        <span class="profile-tag">นาคน้อง</span>
+                        <div class="profile-avatar-wrapper">
+                            <!-- Real photo from path with SVG fallback -->
+                            <img src="img/nark/PP-1994.jpg" class="profile-avatar-img" alt="นาคฟิล์ม" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <svg class="profile-avatar-placeholder" viewBox="0 0 24 24" style="display:none;">
+                                <circle cx="12" cy="7" r="4.5"/>
+                                <path d="M12 13c-3.5 0-6.5 2-8 5v2.5h16V18c-1.5-3-4.5-5-8-5zm-4 4.5l4-3 4 3H8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="profile-name">นาย รังสิพล ชนประชา</h3>
+                        <p class="profile-nickname">( นาคฟิล์ม )</p>
+                        <div class="profile-meta">
+                            <span class="profile-meta-item">อายุ: <strong>23 ปี</strong></span>
+                        </div>
+                        <p class="profile-bio">"มุ่งมั่นเข้าสู่ร่มกาสาวพัสตร์ เพื่อสืบทอดปฏิบัติตามหลักคำสอนแห่งพระบรมศาสดา ฝึกสมาธิปัญญาเจริญจิตภาวนา และร่วมสร้างมหากุศลอุทิศแด่ครอบครัว ชนประชา และผู้มีพระคุณ"</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading State -->
+            <div id="timeline-loading-box" class="status-box">
+                <svg class="status-icon" viewBox="0 0 24 24">
+                    <path d="M12,6.5A5.5,5.5 0 1,1 6.5,12A5.5,5.5 0 0,1 12,6.5M12,2A10,10 0 1,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 1,1 4,12A8,8 0 0,1 12,4M12,10A2,2 0 1,0 14,12A2,2 0 0,0 12,10Z"/>
+                </svg>
+                <h3 class="status-title">ยินดีต้อนรับสู่แกลเลอรีงานบวช พี & ฟิล์ม</h3>
+                <p class="status-desc">กรุณากดปุ่ม "โหลดและแสดงผลรูปภาพทั้งหมด" ด้านบนเพื่อจัดเรียงภาพถ่ายตามลำดับเหตุการณ์</p>
+            </div>
+            <!-- Timeline Area -->
+            <div id="timeline-content-area" class="timeline-wrapper" style="display:none;">
+                <!-- Dynamically populated timeline stops go here -->
+            </div>
+        </section>
+
+        <!-- PAGE 2: All Gallery Grid View -->
+        <section id="gallery-view" class="view-container">
+            <section class="controls-container">
+                <div class="search-box-wrapper">
+                    <input type="text" id="search-input" class="search-input" placeholder="ค้นหาชื่อรูปภาพ พิธีการ หรือผู้ร่วมงาน..." aria-label="ค้นหารูปภาพงานบวช">
+                    <!-- Search SVG Icon -->
+                    <svg class="search-icon" viewBox="0 0 24 24">
+                        <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/>
+                    </svg>
+                </div>
+                <div class="filter-wrapper" id="filter-wrapper">
+                    <button class="filter-chip active" data-category="all">ทั้งหมด</button>
+                    <button class="filter-chip" data-category="shaving">ปลงผมนาค</button>
+                    <button class="filter-chip" data-category="raikhing">รับนาค (วัดไร่ขิง)</button>
+                    <button class="filter-chip" data-category="kwan">ทำขวัญนาค</button>
+                    <button class="filter-chip" data-category="feast">โต๊ะจีน</button>
+                    <button class="filter-chip" data-category="ordination">พิธีอุปสมบท</button>
+                    <button class="filter-chip" data-category="celebration">ฉลองพระใหม่</button>
+                    <button class="filter-chip" data-category="general">ภาพทั่วไป/ครอบครัว</button>
+                </div>
+            </section>
+
+            <!-- Gallery Grid -->
+            <div id="gallery" class="gallery-grid">
+                <!-- Empty state on initial load -->
+                <div class="status-box">
+                    <svg class="status-icon" viewBox="0 0 24 24">
+                        <path d="M12,6.5A5.5,5.5 0 1,1 6.5,12A5.5,5.5 0 0,1 12,6.5M12,2A10,10 0 1,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 1,1 4,12A8,8 0 0,1 12,4M12,10A2,2 0 1,0 14,12A2,2 0 0,0 12,10Z"/>
+                    </svg>
+                    <h3 class="status-title">คลังรูปภาพงานอุปสมบททั้งหมด</h3>
+                    <p class="status-desc">กดปุ่ม "โหลดและแสดงผลรูปภาพทั้งหมด" ด้านบนเพื่อดูรูปทั้งหมดพร้อมตัวกรองค้นหา</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dedication of Merit Section (บทแผ่ส่วนกุศลจากการบวช) -->
+            <section class="merit-dedication-section">
+                <div class="merit-dedication-card">
+                    <div class="merit-glow-bg"></div>
+                    <svg class="merit-lotus-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 4C32 4 27.5 16.5 16.5 24C10.5 28.1 4.5 28.5 2 34C4.5 39.5 13 37.5 19 39.5C27.5 42.5 32 58 32 58C32 58 36.5 42.5 45 39.5C51 37.5 59.5 39.5 62 34C59.5 28.5 53.5 28.1 47.5 24C36.5 16.5 32 4 32 4Z" stroke="var(--accent-primary)" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M32 17C32 17 29 27 21 32.5C16.5 35.5 11.5 35.5 10 39C12 42.5 18 41 22.5 42.5C28.5 44.5 32 53 32 53C32 53 35.5 44.5 41.5 42.5C46 41 52 42.5 54 39C52.5 35.5 47.5 35.5 43 32.5C35 27 32 17 32 17Z" fill="var(--accent-primary)" opacity="0.85"/>
+                        <circle cx="32" cy="36" r="3.5" fill="var(--surface-color)" stroke="var(--accent-primary)" stroke-width="1.5"/>
+                    </svg>
+                    <h2 class="merit-title">บทกรวดน้ำอุทิศส่วนกุศล</h2>
+                    <p class="merit-intro">ขอน้อมอุทิศกุศลผลบุญแห่งการบรรพชาอุปสมบทครั้งนี้ แด่บิดามารดา ผู้มีพระคุณ ญาติมิตร และกัลยาณมิตรทุกๆ ท่าน</p>
+                    
+                    <div class="prayer-box">
+                        <div class="prayer-sub-box">
+                            <h4 class="prayer-type-title">บทอุทิศกุศลส่วนตัว (สำหรับญาติมิตรทุกท่านร่วมตั้งจิต)</h4>
+                            <p class="prayer-line">"อิทัง เม มาตาปิตูนัง โหตุ สุขิตา โหนตุ มาตาปิตะโร"</p>
+                            <p class="prayer-translation">ขอส่วนบุญนี้จงสำเร็จประโยชน์แก่บิดามารดาของข้าพเจ้า ขอให้บิดามารดาของข้าพเจ้ามีความสุขกายสุขใจ</p>
+                        </div>
+                        <div class="prayer-divider-dot"><span></span><span></span><span></span></div>
+                        <div class="prayer-sub-box">
+                            <h4 class="prayer-type-title">บทแผ่เมตตาอุทิศผลบุญโดยรวม (ยะถา)</h4>
+                            <p class="prayer-line">"ยะถา วาริวะหา ปูรา ปะริปูเรนติ สาคะรัง<br>เอวะเมวะ อิโต ทินนัง เปตานัง อุปะกัปปะติ"</p>
+                            <p class="prayer-translation">ห้วงน้ำที่เต็มย่อมยังสมุทรสาครให้บริบูรณ์ได้ฉันใด<br>ทานที่ท่านอุทิศให้แล้วในโลกนี้ ย่อมสำเร็จประโยชน์แก่ผู้ที่ล่วงลับไปแล้วฉันนั้น</p>
+                        </div>
+                    </div>
+                    
+                    <div class="merit-footer">
+                        <p class="merit-wish">"ขออานิสงส์แห่งผลบุญวิหารทานและอุปสมบทกรรมครั้งนี้ จงปกปักรักษาให้ทุกท่านเจริญด้วยอายุ วรรณะ สุขะ พละ และปฏิภาณธนสารสมบัติทุกประการเทอญ"</p>
+                    </div>
+                </div>
+            </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Lotus SVG for Footer -->
+        <svg class="footer-logo" viewBox="0 0 24 24">
+            <path d="M12,2C11.5,4 10,7 8,8.5C6,10 3,10 2,12C3,14 6,14 8,15.5C10,17 11.5,20 12,22C12.5,20 14,17 16,15.5C18,14 21,14 22,12C21,10 18,10 16,8.5C14,7 12.5,4 12,2Z"/>
+        </svg>
+        <p class="footer-text">© 2026 งานอุปสมบท นาย พีรพล (พี) และ นาย รังสิพล (ฟิล์ม) ชนประชา. ขอร่วมอนุโมทนาในกุศลบารมีธรรม</p>
+    </footer>
+
+    <!-- Full-Screen Lightbox Slideshow Modal -->
+    <div id="lightbox" class="lightbox">
+        <!-- Close Button -->
+        <button class="lightbox-btn lightbox-close" id="lightbox-close-btn" title="ปิดหน้าต่าง">
+            <svg viewBox="0 0 24 24">
+                <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
+            </svg>
+        </button>
+        
+        <!-- Navigation Buttons -->
+        <button class="lightbox-btn lightbox-prev" id="lightbox-prev-btn" title="รูปภาพก่อนหน้า">
+            <svg viewBox="0 0 24 24">
+                <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"/>
+            </svg>
+        </button>
+        <button class="lightbox-btn lightbox-next" id="lightbox-next-btn" title="รูปภาพถัดไป">
+            <svg viewBox="0 0 24 24">
+                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/>
+            </svg>
+        </button>
+
+        <div class="lightbox-content-wrapper">
+            <!-- Viewport frame supporting dragging & zoom -->
+            <div id="lightbox-frame" class="lightbox-img-frame">
+                <img id="lightbox-img" class="lightbox-img" src="" alt="ขยายรูปภาพ" draggable="false">
+            </div>
+            
+            <h4 id="lightbox-title" class="lightbox-title">ชื่อรูปภาพ</h4>
+
+            <!-- Interactive Zoom Widget -->
+            <div class="zoom-controls">
+                <button id="zoom-out-btn" class="zoom-btn" title="ซูมออก">—</button>
+                <input type="range" id="zoom-slider" class="zoom-slider" min="1" max="4" step="0.1" value="1">
+                <button id="zoom-in-btn" class="zoom-btn" title="ซูมเข้า">+</button>
+                <span id="zoom-value-text" class="zoom-value">100%</span>
+                <button id="zoom-reset-btn" class="zoom-reset-btn">รีเซ็ต</button>
+            </div>
+            
+            <div class="lightbox-actions">
+                <button id="lightbox-download-btn" class="lightbox-action-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+                    </svg>
+                    ดาวน์โหลดรูปภาพ (ความละเอียดสูง)
+                </button>
+                <button id="lightbox-copy-btn" class="lightbox-action-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/>
+                    </svg>
+                    <span id="copy-btn-text">คัดลอกลิงก์</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Player Toast Notification -->
+    <div id="audio-toast" class="audio-toast">
+        <div class="audio-toast-text">กำลังเล่นดนตรีบรรเลงเพื่อการสมาธิ...</div>
+        <div class="audio-equalizer">
+            <div class="audio-bar"></div>
+            <div class="audio-bar"></div>
+            <div class="audio-bar"></div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script>
+        // Global variables for image list and navigation state
+        let allImages = [];
+        let filteredImages = [];
+        let currentImageIndex = 0;
+        let currentView = 'timeline'; // 'timeline' or 'gallery'
+        let loaderIntervalId = null; // Loader slideshow interval ID
+        let loaderTextIntervalId = null; // Loader text switcher interval ID
+        
+        // Dynamic zoom variables
+        let zoomScale = 1;
+        let isDragging = false;
+        let startX = 0, startY = 0;
+        let translateX = 0, translateY = 0;
+        
+        // 20 Buddhist / Philosophical teachings & Quotes
+        const dhammaQuotes = [
+            { text: "จิตที่ฝึกดีแล้ว นำสุขมาให้", author: "พระพุทธศาสนสุภาษิต" },
+            { text: "การชนะตนนั่นแล เป็นดีที่สุด", author: "พระพุทธศาสนสุภาษิต" },
+            { text: "ความโกรธเป็นสิ่งชั่วร้าย และจะเผาผลาญจิตใจของผู้ที่เก็บมันไว้", author: "พุทธศาสนสุภาษิต" },
+            { text: "ความไม่มีโรค เป็นลาภอันประเสริฐ", author: "พระพุทธโอวาท" },
+            { text: "ผู้พึงใจในธรรม ย่อมเป็นสุข", author: "พุทธสุภาษิต" },
+            { text: "ตนเป็นที่พึ่งแห่งตน", author: "พระพุทธศาสนสุภาษิต" },
+            { text: "สิ่งที่เกิดขึ้นแล้ว ดีเสมอ", author: "ปรัชญาชีวิต" },
+            { text: "จงละทิ้งอดีตและอย่าเพิ่งกังวลถึงอนาคต แต่จงทำปัจจุบันให้ดีที่สุด", author: "พระธรรมเทศนา" },
+            { text: "ชีวิตนี้ไม่มีสิ่งใดจีรังยั่งยืน ทุกสิ่งเกิดขึ้น ตั้งอยู่ แล้วดับไป", author: "พระสุตตันตปิฎก" },
+            { text: "ความอดทนเป็นสมบัติอันล้ำค่าของนักปราชญ์", author: "ปรัชญาพุทธศาสนา" },
+            { text: "การอุปสมบทเพื่อเรียนรู้และปฏิบัติ ย่อมนำมาซึ่งความสงบเย็นแก่ดวงจิต", author: "ธรรมะยินดี" },
+            { text: "ผู้ให้ทานย่อมเป็นที่รัก และย่อมผูกไมตรีไว้ได้นาน", author: "พุทธศาสนสุภาษิต" },
+            { text: "ความสุขไม่ได้ขึ้นอยู่กับสิ่งที่เราครอบครอง แต่ขึ้นอยู่กับจิตใจที่สงบเย็น", author: "ข้อคิดเตือนใจ" },
+            { text: "สติเป็นเครื่องตื่นในโลก สติปัญญาทำให้พ้นทุกข์", author: "พระพุทธพจน์" },
+            { text: "ศีลธรรมนำชีวิตให้เจริญรุ่งเรืองและปลอดภัย", author: "ธรรมะสอนใจ" },
+            { text: "ความกตัญญูกตเวทิตา เป็นเครื่องหมายของคนดี", author: "พระพุทธสุภาษิต" },
+            { text: "การฝึกตนให้มีสติอยู่เสมอ คือหนทางสู่ความหลุดพ้น", author: "ปรัชญาพุทธ" },
+            { text: "สายน้ำไม่ไหลย้อนกลับ เวลาไม่คอยใคร จงสร้างความดีในขณะที่มีโอกาส", author: "ปรัชญาชีวิต" },
+            { text: "เมื่อจิตสงบ ปัญญาจะบังเกิด และธรรมะจะสว่างขึ้นในใจ", author: "โอวาทธรรม" },
+            { text: "การบรรพชาคือการก้าวพ้นความยึดมั่นถือมั่น มุ่งสู่ความเรียบง่ายและธรรมอันบริสุทธิ์", author: "ร่วมอนุโมทนาบุญ" }
+        ];
+
+        // Check if config.js loaded successfully, otherwise fallback to empty config
+        if (typeof imageMappingConfig === 'undefined') {
+            window.imageMappingConfig = {};
+        }
+
+        // Timeline structures (ลำดับงานพิธีการ)
+        const timelineSteps = [
+            // วันแรก: 23 พฤษภาคม
+            {
+                id: "shaving",
+                day: "วันเสาร์ที่ 23 พฤษภาคม 2569 (วันแรก)",
+                title: "ปลงผมนาค 08.00 น.",
+                time: "08:00 น.",
+                desc: "พิธีปลงผมนาค ขลิบผมและโกนศีรษะเพื่อละทางโลก เตรียมตัวเข้าอุปสมบท ณ บ้านเจ้าภาพ",
+                icon: `<svg viewBox="0 0 24 24"><path d="M12,2A2.5,2.5 0 0,0 9.5,4.5A2.5,2.5 0 0,0 12,7A2.5,2.5 0 0,0 14.5,4.5A2.5,2.5 0 0,0 12,2M12,8A3,3 0 0,0 9,11C7.34,11 6,12.34 6,14c0,2.15 2.14,4.24 5,4.86V21h2v-2.14c2.86-.62 5-2.71 5-4.86c0-1.66-1.34-3-3-3A3,3 0 0,0 12,8M7.5,19c-1.38,0-2.5,1.12-2.5,2.5S6.12,24 7.5,24h9c1.38,0 2.5-1.12 2.5-2.5S17.88,19 16.5,19H7.5Z"/></svg>`
+            },
+            {
+                id: "raikhing",
+                day: "วันเสาร์ที่ 23 พฤษภาคม 2569 (วันแรก)",
+                title: "รับนาคจากวัดไร่ขิง 10.00 น.",
+                time: "10:00 น.",
+                desc: "พิธีอัญเชิญและต้อนรับขบวนแห่นาคกลับจากวัดไร่ขิงมายังมณฑลพิธีเพื่อความเป็นสิริมงคล",
+                icon: `<svg viewBox="0 0 24 24"><path d="M12,2A2.5,2.5 0 0,0 9.5,4.5A2.5,2.5 0 0,0 12,7A2.5,2.5 0 0,0 14.5,4.5A2.5,2.5 0 0,0 12,2M12,8A3,3 0 0,0 9,11C7.34,11 6,12.34 6,14c0,2.15 2.14,4.24 5,4.86V21h2v-2.14c2.86-.62 5-2.71 5-4.86c0-1.66-1.34-3-3-3A3,3 0 0,0 12,8M7.5,19c-1.38,0-2.5,1.12-2.5,2.5S6.12,24 7.5,24h9c1.38,0 2.5-1.12 2.5-2.5S17.88,19 16.5,19H7.5Z"/></svg>`
+            },
+            {
+                id: "kwan",
+                day: "วันเสาร์ที่ 23 พฤษภาคม 2569 (วันแรก)",
+                title: "พิธีทำขวัญนาค หมอทศพล หิมพานต์ 13.00 น.",
+                time: "13:00 น.",
+                desc: "พิธีทำขวัญนาคโดยหมอทศพล หิมพานต์ เพื่ออบรมชี้ธรรมและระลึกถึงพระคุณบิดามารดาผู้ให้กำเนิด",
+                icon: `<svg viewBox="0 0 24 24"><path d="M12,2A2.5,2.5 0 0,0 9.5,4.5A2.5,2.5 0 0,0 12,7A2.5,2.5 0 0,0 14.5,4.5A2.5,2.5 0 0,0 12,2M12,8A3,3 0 0,0 9,11C7.34,11 6,12.34 6,14c0,2.15 2.14,4.24 5,4.86V21h2v-2.14c2.86-.62 5-2.71 5-4.86c0-1.66-1.34-3-3-3A3,3 0 0,0 12,8M7.5,19c-1.38,0-2.5,1.12-2.5,2.5S6.12,24 7.5,24h9c1.38,0 2.5-1.12 2.5-2.5S17.88,19 16.5,19H7.5Z"/></svg>`
+            },
+            {
+                id: "feast",
+                day: "วันเสาร์ที่ 23 พฤษภาคม 2569 (วันแรก)",
+                title: "โต๊ะจีน ณ โรงยิมโรงเรียนวัดท่าพูด 18.00 น.",
+                time: "18:00 น.",
+                desc: "ร่วมรับประทานอาหารโต๊ะจีนและร่วมแสดงความยินดี อนุโมทนาบุญ ณ โรงยิมโรงเรียนวัดท่าพูด",
+                icon: `<svg viewBox="0 0 24 24"><path d="M12,2A2.5,2.5 0 0,0 9.5,4.5A2.5,2.5 0 0,0 12,7A2.5,2.5 0 0,0 14.5,4.5A2.5,2.5 0 0,0 12,2M12,8A3,3 0 0,0 9,11C7.34,11 6,12.34 6,14c0,2.15 2.14,4.24 5,4.86V21h2v-2.14c2.86-.62 5-2.71 5-4.86c0-1.66-1.34-3-3-3A3,3 0 0,0 12,8M7.5,19c-1.38,0-2.5,1.12-2.5,2.5S6.12,24 7.5,24h9c1.38,0 2.5-1.12 2.5-2.5S17.88,19 16.5,19H7.5Z"/></svg>`
+            },
+            // วันที่สอง: 24 พฤษภาคม
+            {
+                id: "ordination",
+                day: "วันอาทิตย์ที่ 24 พฤษภาคม 2569 (วันที่สอง)",
+                title: "นำนาคเข้าพิธีอุปสมบท 07.00 น.",
+                time: "07:00 น.",
+                desc: "ขบวนแห่นาคเวียนรอบอุโบสถ 3 รอบ นำนาคเข้าสู่พระอุโบสถเพื่อทำพิธีอุปสมบทเป็นพระภิกษุสงฆ์",
+                icon: `<svg viewBox="0 0 24 24"><path d="M12,2A2.5,2.5 0 0,0 9.5,4.5A2.5,2.5 0 0,0 12,7A2.5,2.5 0 0,0 14.5,4.5A2.5,2.5 0 0,0 12,2M12,8A3,3 0 0,0 9,11C7.34,11 6,12.34 6,14c0,2.15 2.14,4.24 5,4.86V21h2v-2.14c2.86-.62 5-2.71 5-4.86c0-1.66-1.34-3-3-3A3,3 0 0,0 12,8M7.5,19c-1.38,0-2.5,1.12-2.5,2.5S6.12,24 7.5,24h9c1.38,0 2.5-1.12 2.5-2.5S17.88,19 16.5,19H7.5Z"/></svg>`
+            },
+            {
+                id: "celebration",
+                day: "วันอาทิตย์ที่ 24 พฤษภาคม 2569 (วันที่สอง)",
+                title: "ฉลองพระใหม่ 10.00 น.",
+                time: "10:00 น.",
+                desc: "ฉลองพระภิกษุสงฆ์ใหม่ ร่วมถวายภัตตาหารเพล และร่วมฉลองเพื่อความเป็นสิริมงคล",
+                icon: `<svg viewBox="0 0 24 24"><path d="M12,2A2.5,2.5 0 0,0 9.5,4.5A2.5,2.5 0 0,0 12,7A2.5,2.5 0 0,0 14.5,4.5A2.5,2.5 0 0,0 12,2M12,8A3,3 0 0,0 9,11C7.34,11 6,12.34 6,14c0,2.15 2.14,4.24 5,4.86V21h2v-2.14c2.86-.62 5-2.71 5-4.86c0-1.66-1.34-3-3-3A3,3 0 0,0 12,8M7.5,19c-1.38,0-2.5,1.12-2.5,2.5S6.12,24 7.5,24h9c1.38,0 2.5-1.12 2.5-2.5S17.88,19 16.5,19H7.5Z"/></svg>`
+            }
+        ];
+
+        // Initialization
+        document.addEventListener("DOMContentLoaded", () => {
+            initQuotes();
+            initTheme();
+            initAudio();
+            initSearchAndFilters();
+            initLightbox();
+            initViewSwitcher();
+            initHeroSlideshow();
+            initLoaderSlideshow();
+            initLoaderTextSwitcher();
+            loadImages(); // Auto-load images on open
+        });
+
+        // 1.25 Loader Background Slideshow (8 images, 2 seconds interval)
+        const loaderBackgrounds = [
+            "https://lh3.googleusercontent.com/d/1cp2musYONyeRXoxkgPmMgQk2wMj9tAjE",
+            "https://lh3.googleusercontent.com/d/17y1gjrubepYSYc7oGbJqGeU4MEYHmyuv",
+            "https://lh3.googleusercontent.com/d/1uOuJZ5wWoj1Pew7GOzfahRWkujsvOu6J",
+            "https://lh3.googleusercontent.com/d/11rTAuIgZ5rjn9-Harm76Jw1VaAoZS6Pj",
+            "https://lh3.googleusercontent.com/d/1ptXpzgc5NyVqk2DgsZOvhNAayd9J0Zyu",
+            "https://lh3.googleusercontent.com/d/1uOuJZ5wWoj1Pew7GOzfahRWkujsvOu6J",
+            "https://lh3.googleusercontent.com/d/1CbCmnWVc3BHPtzuoWk9l6M7GNdBzooiQ",
+            "https://lh3.googleusercontent.com/d/1v2G5-7_M00Tai75eBoLoDm7uIlqpcl6D"
+        ];
+
+        function initLoaderSlideshow() {
+            const container = document.getElementById("loader-slideshow");
+            if (!container) return;
+
+            // Generate slide elements
+            loaderBackgrounds.forEach((url, index) => {
+                const slide = document.createElement("div");
+                slide.className = "loader-bg-slide";
+                slide.style.backgroundImage = `url('${url}')`;
+                if (index === 0) slide.style.opacity = "0.78"; // Matches HSL HSB light opacity
+                container.appendChild(slide);
+            });
+
+            let currentSlideIndex = 0;
+            const slides = container.getElementsByClassName("loader-bg-slide");
+
+            loaderIntervalId = setInterval(() => {
+                if (slides.length <= 1) return;
+                
+                // Fade out current slide
+                slides[currentSlideIndex].style.opacity = "0";
+                
+                // Advance to next
+                currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+                
+                // Fade in next slide
+                slides[currentSlideIndex].style.opacity = "0.78";
+            }, 2000); // Change background every 2 seconds
+        }
+
+        // Loader status friendly switching phrases
+        const loaderPhrases = [
+            "กำลังเชื่อมต่อคลังภาพและประมวลผลระบบ...",
+            "ระบบไม่ได้ค้างนะจ๊ะ รอสักครู่เดียว...",
+            "กำลังทยอยโหลดรูปภาพจากระบบ Google Drive API...",
+            "ภาพคลังค่อนข้างใหญ่ กำลังดึงความละเอียดสูง...",
+            "จัดระเบียบภาพพิธี ปลงผม/ทำขวัญ/อุปสมบท...",
+            "ภาพความทรงจำกำลังจะแสดงผลแล้ว อีกนิดเดียวจ้า...",
+            "ขอบคุณที่รอคอยน้า ใกล้เสร็จแล้ว..."
+        ];
+
+        function initLoaderTextSwitcher() {
+            const textEl = document.getElementById("loader-status-text");
+            if (!textEl) return;
+
+            // Set up smooth transitions inline
+            textEl.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+            
+            let phraseIdx = 0;
+            loaderTextIntervalId = setInterval(() => {
+                // Fade out and translate slightly
+                textEl.style.opacity = "0";
+                textEl.style.transform = "translateY(-5px)";
+                
+                setTimeout(() => {
+                    phraseIdx = (phraseIdx + 1) % loaderPhrases.length;
+                    textEl.textContent = loaderPhrases[phraseIdx];
+                    
+                    // Fade in and translate back
+                    textEl.style.opacity = "1";
+                    textEl.style.transform = "translateY(0)";
+                }, 400);
+            }, 2500); // Switch every 2.5 seconds
+        }
+
+        // 1.5 Hero Background Slideshow
+        const heroBackgrounds = [
+            "https://lh3.googleusercontent.com/d/1cp2musYONyeRXoxkgPmMgQk2wMj9tAjE", // Serene temple silhouette
+            "https://lh3.googleusercontent.com/d/17y1gjrubepYSYc7oGbJqGeU4MEYHmyuv", // Beautiful pagoda sky
+            "https://lh3.googleusercontent.com/d/1uOuJZ5wWoj1Pew7GOzfahRWkujsvOu6J", // Gold details
+            "https://lh3.googleusercontent.com/d/11rTAuIgZ5rjn9-Harm76Jw1VaAoZS6Pj",  // Peaceful nature/water
+            "https://lh3.googleusercontent.com/d/1ptXpzgc5NyVqk2DgsZOvhNAayd9J0Zyu"
+        ];
+
+        function initHeroSlideshow() {
+            const container = document.getElementById("hero-slideshow");
+            if (!container) return;
+
+            // Generate slide elements
+            heroBackgrounds.forEach((url, index) => {
+                const slide = document.createElement("div");
+                slide.className = "hero-bg-slide";
+                slide.style.backgroundImage = `url('${url}')`;
+                if (index === 0) slide.style.opacity = "1";
+                container.appendChild(slide);
+            });
+
+            let currentSlideIndex = 0;
+            const slides = container.getElementsByClassName("hero-bg-slide");
+
+            setInterval(() => {
+                if (slides.length <= 1) return;
+                
+                // Fade out current slide
+                slides[currentSlideIndex].style.opacity = "0";
+                
+                // Advance to next
+                currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+                
+                // Fade in next slide
+                slides[currentSlideIndex].style.opacity = "1";
+            }, 6000); // Change background every 6 seconds
+        }
+
+        // 1. View Switcher (Timeline vs Gallery)
+        function initViewSwitcher() {
+            const tabTimeline = document.getElementById("tab-timeline");
+            const tabGallery = document.getElementById("tab-gallery");
+            const timelineView = document.getElementById("timeline-view");
+            const galleryView = document.getElementById("gallery-view");
+
+            tabTimeline.addEventListener("click", () => {
+                tabTimeline.classList.add("active");
+                tabGallery.classList.remove("active");
+                timelineView.classList.add("active");
+                galleryView.classList.remove("active");
+                currentView = 'timeline';
+            });
+
+            tabGallery.addEventListener("click", () => {
+                tabTimeline.classList.remove("active");
+                tabGallery.classList.add("active");
+                timelineView.classList.remove("active");
+                galleryView.classList.add("active");
+                currentView = 'gallery';
+            });
+        }
+
+        // 2. Quotes Logic with Animated Random Switching
+        function initQuotes() {
+            const quoteText = document.getElementById("quote-text");
+            const quoteAuthor = document.getElementById("quote-author");
+            if (!quoteText || !quoteAuthor) return;
+
+            quoteText.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            quoteAuthor.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+
+            function showNextQuote() {
+                quoteText.style.opacity = "0";
+                quoteText.style.transform = "translateY(-5px)";
+                quoteAuthor.style.opacity = "0";
+                quoteAuthor.style.transform = "translateY(5px)";
+
+                setTimeout(() => {
+                    const randomIndex = Math.floor(Math.random() * dhammaQuotes.length);
+                    quoteText.textContent = `"${dhammaQuotes[randomIndex].text}"`;
+                    quoteAuthor.textContent = `— ${dhammaQuotes[randomIndex].author}`;
+
+                    quoteText.style.opacity = "1";
+                    quoteText.style.transform = "translateY(0)";
+                    quoteAuthor.style.opacity = "1";
+                    quoteAuthor.style.transform = "translateY(0)";
+                }, 600);
+            }
+
+            // Show first quote immediately
+            showNextQuote();
+
+            // Set up recurring quote switcher
+            setInterval(showNextQuote, 7000); // Switch every 7 seconds
+        }
+
+        // 3. Theme Controls (Light/Dark Mode)
+        function initTheme() {
+            const themeToggleBtn = document.getElementById("theme-toggle-btn");
+            const sunIcon = document.getElementById("theme-icon-sun");
+            const moonIcon = document.getElementById("theme-icon-moon");
+            
+            const savedTheme = localStorage.getItem("theme");
+            const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            
+            if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
+                document.documentElement.classList.add("dark");
+                sunIcon.style.display = "none";
+                moonIcon.style.display = "block";
+            } else {
+                document.documentElement.classList.remove("dark");
+                sunIcon.style.display = "block";
+                moonIcon.style.display = "none";
+            }
+
+            themeToggleBtn.addEventListener("click", () => {
+                const isDark = document.documentElement.classList.toggle("dark");
+                localStorage.setItem("theme", isDark ? "dark" : "light");
+                
+                if (isDark) {
+                    sunIcon.style.display = "none";
+                    moonIcon.style.display = "block";
+                } else {
+                    sunIcon.style.display = "block";
+                    moonIcon.style.display = "none";
+                }
+            });
+        }
+
+        // 4. Ambient Music Control
+        function initAudio() {
+            const audioToggleBtn = document.getElementById("audio-toggle-btn");
+            const audio = document.getElementById("ambient-audio");
+            const audioIconMute = document.getElementById("audio-icon-mute");
+            const audioIconOn = document.getElementById("audio-icon-on");
+            const audioToast = document.getElementById("audio-toast");
+            
+            audioToggleBtn.addEventListener("click", () => {
+                if (audio.paused) {
+                    audio.play()
+                        .then(() => {
+                            audioIconMute.style.display = "none";
+                            audioIconOn.style.display = "block";
+                            audioToast.classList.add("show");
+                            audioToast.classList.add("playing");
+                            
+                            setTimeout(() => {
+                                audioToast.classList.remove("show");
+                            }, 3500);
+                        })
+                        .catch(err => {
+                            console.warn("Audio autoplay blocked:", err);
+                        });
+                } else {
+                    audio.pause();
+                    audioIconMute.style.display = "block";
+                    audioIconOn.style.display = "none";
+                    audioToast.classList.remove("show");
+                    audioToast.classList.remove("playing");
+                }
+            });
+        }
+
+        // 5. Categorization Helper
+        function getCategories(name) {
+            // First check if filename exists in imageMappingConfig
+            if (typeof imageMappingConfig !== 'undefined' && imageMappingConfig[name]) {
+                const configVal = imageMappingConfig[name];
+                if (Array.isArray(configVal)) {
+                    return configVal;
+                } else if (typeof configVal === 'string') {
+                    return [configVal];
+                }
+            }
+            
+            // Fallback keyword-matching heuristic for all 6 categories + general
+            const cleanName = name.toLowerCase();
+            if (cleanName.includes("ปลงผม") || cleanName.includes("โกนหัว") || cleanName.includes("โกนผม") || cleanName.includes("shaving") || cleanName.includes("nark")) {
+                return ["shaving"];
+            } else if (cleanName.includes("ไร่ขิง") || cleanName.includes("รับนาค") || cleanName.includes("raikhing")) {
+                return ["raikhing"];
+            } else if (cleanName.includes("ทำขวัญ") || cleanName.includes("ทศพล") || cleanName.includes("หิมพานต์") || cleanName.includes("kwan")) {
+                return ["kwan"];
+            } else if (cleanName.includes("โต๊ะจีน") || cleanName.includes("โรงยิม") || cleanName.includes("ท่าพูด") || cleanName.includes("feast")) {
+                return ["feast"];
+            } else if (cleanName.includes("บวช") || cleanName.includes("โบสถ์") || cleanName.includes("อุโบสถ") || cleanName.includes("อุปสมบท") || cleanName.includes("ordination")) {
+                return ["ordination"];
+            } else if (cleanName.includes("ฉลอง") || cleanName.includes("พระใหม่") || cleanName.includes("celebration")) {
+                return ["celebration"];
+            } else {
+                return ["general"];
+            }
+        }
+
+        function getCategoryLabel(category) {
+            switch (category) {
+                case "shaving": return "ปลงผมนาค";
+                case "raikhing": return "รับนาค (วัดไร่ขิง)";
+                case "kwan": return "ทำขวัญนาค";
+                case "feast": return "โต๊ะจีน";
+                case "ordination": return "พิธีอุปสมบท";
+                case "celebration": return "ฉลองพระใหม่";
+                case "general": return "ทั่วไป / ครอบครัว";
+                default: return "ทั่วไป";
+            }
+        }
+
+        // 6. Search & Filters
+        function initSearchAndFilters() {
+            const searchInput = document.getElementById("search-input");
+            const filterWrapper = document.getElementById("filter-wrapper");
+            
+            searchInput.addEventListener("input", applyFiltersAndRender);
+
+            filterWrapper.addEventListener("click", (e) => {
+                const button = e.target.closest(".filter-chip");
+                if (!button) return;
+
+                filterWrapper.querySelectorAll(".filter-chip").forEach(btn => btn.classList.remove("active"));
+                button.classList.add("active");
+
+                applyFiltersAndRender();
+            });
+        }
+
+        // Filters render
+        function applyFiltersAndRender() {
+            const searchVal = document.getElementById("search-input").value.trim().toLowerCase();
+            const activeCategory = document.querySelector(".filter-chip.active").getAttribute("data-category");
+            
+            if (allImages.length === 0) return;
+
+            filteredImages = allImages.filter(img => {
+                const matchesSearch = img.name.toLowerCase().includes(searchVal);
+                const matchesCategory = activeCategory === "all" || (img.categories && img.categories.includes(activeCategory));
+                return matchesSearch && matchesCategory;
+            });
+
+            renderGalleryGrid();
+        }
+
+        // 7. Dynamic Data Load (fetch from Google Apps Script Web App)
+        async function loadImages() {
+            const gallery = document.getElementById("gallery");
+            const timelineArea = document.getElementById("timeline-content-area");
+            const timelineLoadingBox = document.getElementById("timeline-loading-box");
+            const loadBtn = document.getElementById("load-btn");
+            const loadBtnWheel = document.getElementById("load-btn-wheel");
+            const loadBtnText = document.getElementById("load-btn-text");
+
+            loadBtnWheel.style.animation = "spin-slow 2s linear infinite";
+            loadBtnText.textContent = "กำลังเชื่อมต่อคลังรูปภาพ...";
+            loadBtn.disabled = true;
+
+            // Render skeleton states in gallery grid
+            gallery.innerHTML = Array(6).fill(0).map(() => `
+                <div class="skeleton-card">
+                    <div class="skeleton-img"></div>
+                    <div class="skeleton-text"></div>
+                    <div class="skeleton-subtext"></div>
+                </div>
+            `).join('');
+
+            // Google Apps Script Web App URL
+            const url = "https://script.google.com/macros/s/AKfycbyH97HAPLsaVWn63viSxtgPYWaZrZV-2LnnaQC2BPgW87qPkrEYkMlvTeUZaQorSZwz/exec";
+
+            try {
+                const response = await fetch(url, { mode: 'cors', redirect: 'follow' });
+                const images = await response.json();
+                
+                // สลับลำดับจากท้ายสุดขึ้นมาเป็นรูปแรก
+                images.reverse();
+                
+                // Group images
+                allImages = images.map(img => ({
+                    ...img,
+                    categories: getCategories(img.name)
+                }));
+                
+                filteredImages = [...allImages];
+
+                // Restore state of the trigger button
+                loadBtnWheel.style.animation = "";
+                loadBtnText.textContent = "อัปเดตดึงข้อมูลรูปภาพงานบวช";
+                loadBtn.disabled = false;
+
+                // Render views
+                renderTimeline();
+                renderGalleryGrid();
+
+                // Toggle timeline state
+                timelineLoadingBox.style.display = "none";
+                timelineArea.style.display = "block";
+
+            } catch (err) {
+                console.error("Error Detail:", err);
+                loadBtnWheel.style.animation = "";
+                loadBtnText.textContent = "โหลดอีกครั้ง";
+                loadBtn.disabled = false;
+
+                const errorMsg = `
+                    <div class="status-box error-box">
+                        <svg class="status-icon" viewBox="0 0 24 24">
+                            <path d="M13 13H11V7H13M13 17H11V15H13M12 2C6.47 2 2 6.5 2 12S6.47 22 12 22 22 17.5 22 12 17.52 2 12 2Z"/>
+                        </svg>
+                        <h3 class="status-title">เกิดข้อผิดพลาดในการดึงข้อมูล</h3>
+                        <p class="status-desc">ระบบไม่สามารถดึงรูปภาพจาก Google Drive API ได้ เนื่องจากข้อผิดพลาดทางเทคนิค</p>
+                    </div>`;
+                gallery.innerHTML = errorMsg;
+                timelineLoadingBox.innerHTML = errorMsg;
+            } finally {
+                // Clear the slideshow timer to preserve memory
+                if (loaderIntervalId) {
+                    clearInterval(loaderIntervalId);
+                }
+                if (loaderTextIntervalId) {
+                    clearInterval(loaderTextIntervalId);
+                }
+                
+                // Fade out page loader smoothly with a tiny delay for visual flow
+                const loader = document.getElementById("page-loader");
+                if (loader) {
+                    setTimeout(() => {
+                        loader.classList.add("fade-out");
+                    }, 800);
+                }
+            }
+        }
+        // 8. Render Timeline View (หน้าแรก)
+        function renderTimeline() {
+            const timelineArea = document.getElementById("timeline-content-area");
+            
+            let html = "";
+            let currentDay = "";
+            
+            timelineSteps.forEach((step, stepIdx) => {
+                // Filter all images belonging to this timeline stop
+                const stepImages = allImages.filter(img => img.categories && img.categories.includes(step.id));
+                const showImages = stepImages.slice(0, 3); // Max 3 preview images
+                const hasMore = stepImages.length > 3;
+                const moreCount = stepImages.length - 2;
+
+                let imagesGridHtml = "";
+
+                if (stepImages.length === 0) {
+                    imagesGridHtml = `<div class="timeline-empty-notice">ยังไม่มีรูปภาพเพิ่มเข้ามาในช่วงพิธีการนี้</div>`;
+                } else {
+                    imagesGridHtml = `
+                        <div class="timeline-grid">
+                            ${showImages.map((img, imgIdx) => {
+                                const globalIndex = allImages.indexOf(img);
+                                
+                                // On the 3rd image, overlay "+X รูป" if there are more
+                                if (imgIdx === 2 && hasMore) {
+                                    return `
+                                        <div class="timeline-img-card" onclick="navigateToGalleryCategory('${step.id}')">
+                                            <img src="${img.url}" class="timeline-img" alt="${img.name}" loading="lazy">
+                                            <div class="more-overlay">
+                                                <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                                                <span>+${moreCount} รูป</span>
+                                            </div>
+                                        </div>
+                                    `;
+                                } else {
+                                    return `
+                                        <div class="timeline-img-card" onclick="openTimelineSlideshow('${step.id}', ${globalIndex})">
+                                            <img src="${img.url}" class="timeline-img" alt="${img.name}" loading="lazy">
+                                        </div>
+                                    `;
+                                }
+                            }).join('')}
+                        </div>
+                    `;
+                }
+
+                const itemHtml = `
+                    <div class="timeline-item" style="animation-delay: ${stepIdx * 0.15}s">
+                        <div class="timeline-badge">
+                            ${step.icon}
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3 class="timeline-title">${step.title}</h3>
+                                <span class="timeline-time">${step.time}</span>
+                            </div>
+                            <p class="timeline-desc">${step.desc}</p>
+                            ${imagesGridHtml}
+                            ${stepImages.length > 0 ? `<button class="timeline-more-btn" onclick="navigateToGalleryCategory('${step.id}')">ดูรูปภาพทั้งหมดในหมวดนี้ (${stepImages.length} รูป) →</button>` : ''}
+                        </div>
+                    </div>
+                `;
+
+                if (step.day !== currentDay) {
+                    if (currentDay !== "") {
+                        html += `</div>`; // Close previous timeline div
+                    }
+                    currentDay = step.day;
+                    html += `
+                        <h3 class="timeline-day-title">
+                            <svg class="day-icon" viewBox="0 0 24 24" style="width:24px; height:24px; fill:var(--accent-primary);">
+                                <path d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.9 20.1,3 19,3H18V1M17,12H12V17H17V12Z"/>
+                            </svg>
+                            <span>${currentDay}</span>
+                        </h3>
+                        <div class="timeline">
+                    `;
+                }
+                html += itemHtml;
+            });
+
+            if (currentDay !== "") {
+                html += `</div>`;
+            }
+
+            timelineArea.innerHTML = html;
+        }
+
+        // 9. Render Gallery Grid View (หน้าสอง)
+        function renderGalleryGrid() {
+            const gallery = document.getElementById("gallery");
+            
+            if (filteredImages.length === 0) {
+                gallery.innerHTML = `
+                    <div class="status-box">
+                        <svg class="status-icon" viewBox="0 0 24 24">
+                            <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3Z"/>
+                        </svg>
+                        <h3 class="status-title">ไม่พบรูปภาพที่คุณค้นหา</h3>
+                        <p class="status-desc">กรุณาลองป้อนคำค้นหาใหม่อีกครั้ง</p>
+                    </div>`;
+                return;
+            }
+
+            gallery.innerHTML = filteredImages.map((img, index) => {
+                const globalIndex = allImages.indexOf(img);
+                const badgesHtml = (img.categories || []).map(catId => {
+                    const label = getCategoryLabel(catId);
+                    return `<span class="card-category">${label}</span>`;
+                }).join(' ');
+                
+                return `
+                    <div class="card" onclick="openGallerySlideshow(${globalIndex})" style="animation-delay: ${Math.min(index * 0.05, 0.4)}s">
+                        <div class="card-img-wrapper">
+                            <img src="${img.url}" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1542044896530-05d85be9b11a?w=400&q=80'" alt="${img.name}" loading="lazy">
+                        </div>
+                        <div class="card-info">
+                            <h4 class="card-title" title="${img.name}">${img.name}</h4>
+                            <div class="card-footer">
+                                <div class="card-categories-container">
+                                    ${badgesHtml}
+                                </div>
+                                <button class="card-action-btn" onclick="event.stopPropagation(); downloadDirect('${img.url}', '${img.name}')" title="ดาวน์โหลด">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Direct Download helper
+        function downloadDirect(url, filename) {
+            fetch(url)
+                .then(response => response.blob())
+                .then(blob => {
+                    const blobURL = window.URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = blobURL;
+                    link.download = filename || 'ordination-image.jpg';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    window.URL.revokeObjectURL(blobURL);
+                })
+                .catch(() => {
+                    window.open(url, '_blank');
+                });
+        }
+
+        // 10. Lightbox Slideshow & Panning Zoom Controller
+        function initLightbox() {
+            const lightbox = document.getElementById("lightbox");
+            const closeBtn = document.getElementById("lightbox-close-btn");
+            const prevBtn = document.getElementById("lightbox-prev-btn");
+            const nextBtn = document.getElementById("lightbox-next-btn");
+            
+            // Zoom widget items
+            const zoomInBtn = document.getElementById("zoom-in-btn");
+            const zoomOutBtn = document.getElementById("zoom-out-btn");
+            const zoomSlider = document.getElementById("zoom-slider");
+            const zoomValueText = document.getElementById("zoom-value-text");
+            const zoomResetBtn = document.getElementById("zoom-reset-btn");
+            const lightboxFrame = document.getElementById("lightbox-frame");
+            const lightboxImg = document.getElementById("lightbox-img");
+
+            // Events
+            closeBtn.addEventListener("click", closeLightbox);
+            prevBtn.addEventListener("click", prevLightbox);
+            nextBtn.addEventListener("click", nextLightbox);
+            
+            lightbox.addEventListener("click", (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener("keydown", (e) => {
+                if (!lightbox.classList.contains("active")) return;
+                if (e.key === "Escape") closeLightbox();
+                if (e.key === "ArrowLeft") prevLightbox();
+                if (e.key === "ArrowRight") nextLightbox();
+            });
+
+            // Zoom logic triggers
+            function updateZoom(newScale) {
+                zoomScale = Math.max(1, Math.min(4, newScale));
+                zoomSlider.value = zoomScale;
+                zoomValueText.textContent = Math.round(zoomScale * 100) + "%";
+                
+                if (zoomScale === 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+                
+                applyTransform();
+            }
+
+            function applyTransform() {
+                lightboxImg.style.transform = `scale(${zoomScale}) translate(${translateX}px, ${translateY}px)`;
+            }
+
+            zoomSlider.addEventListener("input", (e) => {
+                updateZoom(parseFloat(e.target.value));
+            });
+
+            zoomInBtn.addEventListener("click", () => {
+                updateZoom(zoomScale + 0.3);
+            });
+
+            zoomOutBtn.addEventListener("click", () => {
+                updateZoom(zoomScale - 0.3);
+            });
+
+            zoomResetBtn.addEventListener("click", () => {
+                resetZoom();
+            });
+
+            // Panning & Dragging logic inside zoom frame
+            lightboxFrame.addEventListener("mousedown", (e) => {
+                if (zoomScale <= 1) return;
+                isDragging = true;
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+            });
+
+            document.addEventListener("mousemove", (e) => {
+                if (!isDragging) return;
+                translateX = e.clientX - startX;
+                translateY = e.clientY - startY;
+                applyTransform();
+            });
+
+            document.addEventListener("mouseup", () => {
+                isDragging = false;
+            });
+
+            // Mobile touch drag & swipe events
+            let touchStartX = null;
+            let touchStartY = null;
+
+            lightboxFrame.addEventListener("touchstart", (e) => {
+                if (e.touches.length !== 1) return;
+                if (zoomScale > 1) {
+                    isDragging = true;
+                    startX = e.touches[0].clientX - translateX;
+                    startY = e.touches[0].clientY - translateY;
+                } else {
+                    touchStartX = e.touches[0].clientX;
+                    touchStartY = e.touches[0].clientY;
+                }
+            });
+
+            lightboxFrame.addEventListener("touchmove", (e) => {
+                if (e.touches.length !== 1) return;
+                if (zoomScale > 1) {
+                    if (!isDragging) return;
+                    translateX = e.touches[0].clientX - startX;
+                    translateY = e.touches[0].clientY - startY;
+                    applyTransform();
+                }
+            });
+
+            lightboxFrame.addEventListener("touchend", (e) => {
+                if (zoomScale > 1) {
+                    isDragging = false;
+                } else if (touchStartX !== null && touchStartY !== null) {
+                    const diffX = e.changedTouches[0].clientX - touchStartX;
+                    const diffY = e.changedTouches[0].clientY - touchStartY;
+                    // Horizontal swipe threshold: swipe at least 50px horizontally, and keep vertical deviation under 80px
+                    if (Math.abs(diffX) > 50 && Math.abs(diffY) < 80) {
+                        if (diffX > 0) {
+                            prevLightbox();
+                        } else {
+                            nextLightbox();
+                        }
+                    }
+                    touchStartX = null;
+                    touchStartY = null;
+                }
+            });
+
+            // Download & Copy details inside lightbox
+            const downloadBtn = document.getElementById("lightbox-download-btn");
+            const copyBtn = document.getElementById("lightbox-copy-btn");
+            const copyBtnText = document.getElementById("copy-btn-text");
+
+            downloadBtn.addEventListener("click", () => {
+                if (filteredImages[currentImageIndex]) {
+                    const img = filteredImages[currentImageIndex];
+                    downloadDirect(img.url, img.name);
+                }
+            });
+
+            copyBtn.addEventListener("click", () => {
+                if (filteredImages[currentImageIndex]) {
+                    const url = filteredImages[currentImageIndex].url;
+                    navigator.clipboard.writeText(url).then(() => {
+                        copyBtnText.textContent = "คัดลอกแล้ว!";
+                        copyBtn.style.background = "var(--accent-primary)";
+                        copyBtn.style.color = "#FFFFFF";
+                        
+                        setTimeout(() => {
+                            copyBtnText.textContent = "คัดลอกลิงก์";
+                            copyBtn.style.background = "";
+                            copyBtn.style.color = "";
+                        }, 2000);
+                    }).catch(err => {
+                        console.error("Failed to copy link:", err);
+                    });
+                }
+            });
+        }
+
+        function resetZoom() {
+            zoomScale = 1;
+            translateX = 0;
+            translateY = 0;
+            const zoomSlider = document.getElementById("zoom-slider");
+            const zoomValueText = document.getElementById("zoom-value-text");
+            const lightboxImg = document.getElementById("lightbox-img");
+            
+            if (zoomSlider) zoomSlider.value = 1;
+            if (zoomValueText) zoomValueText.textContent = "100%";
+            if (lightboxImg) lightboxImg.style.transform = "scale(1) translate(0px, 0px)";
+        }
+
+        // Open Lightbox from Timeline (categorized view)
+        function openTimelineSlideshow(categoryId, selectedGlobalIndex) {
+            filteredImages = allImages.filter(img => img.categories && img.categories.includes(categoryId));
+            const targetImage = allImages[selectedGlobalIndex];
+            const filteredIndex = filteredImages.indexOf(targetImage);
+            openLightbox(filteredIndex >= 0 ? filteredIndex : 0);
+        }
+
+        // Open Lightbox from All Gallery View
+        function openGallerySlideshow(selectedGlobalIndex) {
+            const activeCategory = document.querySelector(".filter-chip.active").getAttribute("data-category");
+            const searchVal = document.getElementById("search-input").value.trim().toLowerCase();
+            
+            filteredImages = allImages.filter(img => {
+                const matchesSearch = img.name.toLowerCase().includes(searchVal);
+                const matchesCategory = activeCategory === "all" || (img.categories && img.categories.includes(activeCategory));
+                return matchesSearch && matchesCategory;
+            });
+
+            const targetImage = allImages[selectedGlobalIndex];
+            const filteredIndex = filteredImages.indexOf(targetImage);
+
+            openLightbox(filteredIndex >= 0 ? filteredIndex : 0);
+        }
+
+        // Navigate to Gallery view and activate specific category filter chip
+        window.navigateToGalleryCategory = function(categoryId) {
+            // 1. Switch active filter chip on the gallery tab
+            const filterWrapper = document.getElementById("filter-wrapper");
+            if (filterWrapper) {
+                filterWrapper.querySelectorAll(".filter-chip").forEach(btn => {
+                    if (btn.getAttribute("data-category") === categoryId) {
+                        btn.classList.add("active");
+                    } else {
+                        btn.classList.remove("active");
+                    }
+                });
+            }
+            
+            // 2. Trigger active tab transition
+            const tabTimeline = document.getElementById("tab-timeline");
+            const tabGallery = document.getElementById("tab-gallery");
+            const timelineView = document.getElementById("timeline-view");
+            const galleryView = document.getElementById("gallery-view");
+            
+            if (tabTimeline && tabGallery && timelineView && galleryView) {
+                tabTimeline.classList.remove("active");
+                tabGallery.classList.add("active");
+                timelineView.classList.remove("active");
+                galleryView.classList.add("active");
+                currentView = 'gallery';
+            }
+            
+            // 3. Clear search filter input so all images of that category are shown
+            const searchInput = document.getElementById("search-input");
+            if (searchInput) searchInput.value = "";
+            
+            // 4. Filter and render the gallery grid
+            applyFiltersAndRender();
+            
+            // 5. Scroll smoothly to the gallery container so the user sees it immediately
+            const mainContent = document.querySelector(".main-content");
+            if (mainContent) {
+                mainContent.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
+
+        function openLightbox(index) {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const lightboxTitle = document.getElementById("lightbox-title");
+
+            currentImageIndex = index;
+            const img = filteredImages[index];
+
+            if (!img) return;
+
+            resetZoom();
+            
+            lightboxImg.src = img.url;
+            lightboxTitle.textContent = img.name;
+            
+            lightbox.classList.add("active");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById("lightbox");
+            lightbox.classList.remove("active");
+            document.body.style.overflow = "";
+            resetZoom();
+        }
+
+        function prevLightbox() {
+            if (filteredImages.length <= 1) return;
+            let index = currentImageIndex - 1;
+            if (index < 0) index = filteredImages.length - 1;
+            updateLightboxContent(index);
+        }
+
+        function nextLightbox() {
+            if (filteredImages.length <= 1) return;
+            let index = currentImageIndex + 1;
+            if (index >= filteredImages.length) index = 0;
+            updateLightboxContent(index);
+        }
+
+        function updateLightboxContent(index) {
+            const lightboxImg = document.getElementById("lightbox-img");
+            const lightboxTitle = document.getElementById("lightbox-title");
+            
+            currentImageIndex = index;
+            const img = filteredImages[index];
+
+            resetZoom();
+
+            lightboxImg.style.opacity = "0.5";
+            
+            setTimeout(() => {
+                lightboxImg.src = img.url;
+                lightboxTitle.textContent = img.name;
+                lightboxImg.style.opacity = "1";
+            }, 150);
+        }
+    </script>
+
+    <style>
+        /* Slow Dharma Wheel Rotation */
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</body>
+</html>
