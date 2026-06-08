@@ -1,6 +1,11 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" class="dark">
 <head>
+    <script>
+        if (localStorage.getItem("theme") === "light") {
+            document.documentElement.classList.remove("dark");
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>งานอุปสมบท พีรพล & รังสิพล ชนประชา | Ordination Gallery</title>
@@ -65,8 +70,8 @@
 
                 <!-- Theme Toggle Button (Light/Dark) -->
                 <button id="theme-toggle-btn" class="btn-circle" title="สลับโหมดสว่าง/มืด">
-                    <i id="theme-icon-sun" class="fa-solid fa-sun show"></i>
-                    <i id="theme-icon-moon" class="fa-solid fa-moon hidden" style="display:none;"></i>
+                    <i id="theme-icon-sun" class="fa-solid fa-sun hidden" style="display:none;"></i>
+                    <i id="theme-icon-moon" class="fa-solid fa-moon show"></i>
                 </button>
             </div>
         </div>
@@ -642,9 +647,8 @@
             const moonIcon = document.getElementById("theme-icon-moon");
             
             const savedTheme = localStorage.getItem("theme");
-            const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
             
-            if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
+            if (savedTheme !== "light") {
                 document.documentElement.classList.add("dark");
                 sunIcon.style.display = "none";
                 moonIcon.style.display = "block";
